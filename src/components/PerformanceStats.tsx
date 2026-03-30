@@ -52,17 +52,26 @@ function StatCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, y: 50, filter: "blur(6px)" }}
+      animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
       transition={{ duration: 0.9, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="text-center py-14 md:py-20"
+      whileHover={{
+        backgroundColor: "rgba(255,255,255,0.02)",
+        y: -4,
+        transition: { duration: 0.35 },
+      }}
+      className="text-center py-14 md:py-20 cursor-default rounded-xl transition-colors"
     >
-      <div className="text-[clamp(3rem,9vw,7.5rem)] font-bold leading-none tracking-[-0.04em]">
+      <motion.div
+        className="text-[clamp(3rem,9vw,7.5rem)] font-bold leading-none tracking-[-0.04em]"
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
         {count.toLocaleString()}
         <span className="text-white/25 text-[0.35em] ml-2 font-light">
           {unit}
         </span>
-      </div>
+      </motion.div>
       <p className="text-[10px] tracking-[0.4em] uppercase text-white/20 mt-5 font-light">
         {label}
       </p>

@@ -91,10 +91,10 @@ export default function PowerMode() {
               const isActive = mode === m;
               const c = modeConfig[m].color;
               return (
-                <button
+                <motion.button
                   key={m}
                   onClick={() => setMode(m)}
-                  className="relative px-7 py-3 text-xs tracking-[0.25em] uppercase font-medium transition-all duration-500 rounded-full cursor-pointer"
+                  className="relative px-7 py-3 text-xs tracking-[0.25em] uppercase font-medium rounded-full cursor-pointer"
                   style={{
                     color: isActive ? "#000" : c,
                     borderWidth: "1px",
@@ -103,9 +103,16 @@ export default function PowerMode() {
                     background: isActive ? c : "transparent",
                     boxShadow: isActive ? `0 0 30px ${c}25` : "none",
                   }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: `0 0 40px ${c}35`,
+                    borderColor: c,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   {m}
-                </button>
+                </motion.button>
               );
             })}
           </div>
@@ -131,13 +138,19 @@ export default function PowerMode() {
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
-              className="text-center p-6 md:p-8 rounded-2xl"
+              className="text-center p-6 md:p-8 rounded-2xl cursor-default"
               animate={{
                 borderColor: config.color + "12",
                 backgroundColor: config.color + "04",
                 boxShadow: `inset 0 1px 0 ${config.color}08`,
               }}
-              transition={{ duration: 0.6 }}
+              whileHover={{
+                y: -6,
+                borderColor: config.color + "30",
+                backgroundColor: config.color + "0a",
+                boxShadow: `0 8px 32px ${config.color}12, inset 0 1px 0 ${config.color}15`,
+              }}
+              transition={{ duration: 0.4 }}
               style={{
                 border: `1px solid ${config.color}12`,
               }}
