@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import Image from "next/image";
 
-const RESERVE_IMAGE = "/images/taycan-side.png";
+const RESERVE_IMAGE = "/images/taycan-rear.png";
 
 function GlowInput({
   type,
