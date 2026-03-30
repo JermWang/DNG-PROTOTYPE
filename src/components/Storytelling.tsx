@@ -10,24 +10,21 @@ const stories = [
     headline: "0–60 in 2.1s",
     description:
       "Instant torque. Zero hesitation. The E1 rewrites the rules of acceleration with dual-motor precision.",
-    image:
-      "https://images.unsplash.com/photo-1614415512834-d6a88fcc29e4?w=800&q=85&auto=format&fit=crop",
+    image: "/images/taycan-side.png",
   },
   {
     label: "Powertrain",
     headline: "Dual Motor System",
     description:
       "Independent front and rear motors deliver surgical power distribution. Every wheel, every millisecond, optimized.",
-    image:
-      "https://images.unsplash.com/photo-1570374910698-6db3d787e6fb?w=800&q=85&auto=format&fit=crop",
+    image: "/images/taycan-rear.png",
   },
   {
     label: "Philosophy",
     headline: "Designed for Silence.\nBuilt for Impact.",
     description:
       "The absence of noise isn\u2019t emptiness \u2014 it\u2019s confidence. The E1 commands attention without asking for it.",
-    image:
-      "https://images.unsplash.com/photo-1615125468484-088e3dfcabb6?w=800&q=85&auto=format&fit=crop",
+    image: "/images/taycan-front-alt.png",
   },
 ];
 
@@ -137,20 +134,15 @@ function StoryBlock({
               delay: 0.2,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="relative aspect-[4/3] rounded-2xl overflow-hidden"
-            style={{
-              maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
-              WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
-            }}
+            className="relative aspect-[4/3] flex items-center justify-center"
           >
             <Image
               src={story.image}
               alt={story.label}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="object-contain drop-shadow-[0_20px_60px_rgba(255,255,255,0.07)]"
             />
-            <div className="absolute inset-0 bg-black/10" />
           </motion.div>
         </motion.div>
       </div>

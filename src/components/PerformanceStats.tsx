@@ -5,8 +5,7 @@ import { motion, useInView } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import Image from "next/image";
 
-const DETAIL_IMAGE =
-  "https://images.unsplash.com/photo-1570432215913-b66fff4a50a4?w=1200&q=85&auto=format&fit=crop";
+const DETAIL_IMAGE = "/images/taycan-angle.png";
 
 function useCountUp(
   end: number,
@@ -121,22 +120,15 @@ export default function PerformanceStats() {
         {/* Car detail image */}
         <ScrollReveal delay={0.2}>
           <div
-            className="mt-16 relative aspect-[21/9] rounded-2xl overflow-hidden"
-            style={{
-              maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent), linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
-              maskComposite: "intersect",
-              WebkitMaskComposite: "source-in",
-            }}
+            className="mt-16 relative aspect-[16/9] flex items-center justify-center"
           >
             <Image
               src={DETAIL_IMAGE}
               alt="Volterra E1 detail"
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-contain drop-shadow-[0_30px_80px_rgba(255,255,255,0.08)]"
             />
-            <div className="absolute inset-0 bg-black/10" />
           </div>
         </ScrollReveal>
       </div>

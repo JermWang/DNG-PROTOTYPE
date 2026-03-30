@@ -5,8 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import Image from "next/image";
 
-const RESERVE_IMAGE =
-  "https://images.unsplash.com/photo-1642911041553-297e5295276b?w=800&q=85&auto=format&fit=crop&crop=left";
+const RESERVE_IMAGE = "/images/taycan-side.png";
 
 function GlowInput({
   type,
@@ -53,20 +52,15 @@ export default function ReserveForm() {
         {/* Image side */}
         <ScrollReveal direction="left">
           <div
-            className="relative aspect-[3/4] rounded-2xl overflow-hidden"
-            style={{
-              maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
-              WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
-            }}
+            className="relative aspect-[3/4] flex items-center justify-center"
           >
             <Image
               src={RESERVE_IMAGE}
               alt="Volterra E1"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="object-contain drop-shadow-[0_20px_60px_rgba(255,255,255,0.07)]"
             />
-            <div className="absolute inset-0 bg-black/10" />
           </div>
         </ScrollReveal>
 
