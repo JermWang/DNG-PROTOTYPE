@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import Image from "next/image";
+
+const RESERVE_IMAGE =
+  "https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=85&auto=format&fit=crop";
 
 function GlowInput({
   type,
@@ -44,23 +48,38 @@ export default function ReserveForm() {
   };
 
   return (
-    <section className="min-h-[80vh] flex items-center justify-center px-6 md:px-16 py-32">
-      <div className="max-w-md w-full text-center">
-        <ScrollReveal>
-          <p className="text-[10px] tracking-[0.5em] uppercase text-white/25 mb-4 font-light">
-            Be First
-          </p>
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.02em] mb-4">
-            Reserve Your Build
-          </h2>
-          <p className="text-white/30 text-sm font-light mb-14 leading-relaxed tracking-wide">
-            Join the founding cohort. Priority access to configuration,
-            delivery, and the future.
-          </p>
+    <section className="px-6 md:px-16 py-32">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        {/* Image side */}
+        <ScrollReveal direction="left">
+          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+            <Image
+              src={RESERVE_IMAGE}
+              alt="Volterra E1"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/20" />
+          </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.2}>
-          <AnimatePresence mode="wait">
+        {/* Form side */}
+        <div className="text-center md:text-left">
+          <ScrollReveal>
+            <p className="text-[10px] tracking-[0.5em] uppercase text-white/25 mb-4 font-light">
+              Be First
+            </p>
+            <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.02em] mb-4">
+              Reserve Your Build
+            </h2>
+            <p className="text-white/30 text-sm font-light mb-14 leading-relaxed tracking-wide">
+              Join the founding cohort. Priority access to configuration,
+              delivery, and the future.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <AnimatePresence mode="wait">
             {!submitted ? (
               <motion.form
                 key="form"
@@ -156,6 +175,7 @@ export default function ReserveForm() {
             )}
           </AnimatePresence>
         </ScrollReveal>
+        </div>
       </div>
     </section>
   );

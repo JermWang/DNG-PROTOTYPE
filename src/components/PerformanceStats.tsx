@@ -3,6 +3,10 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import Image from "next/image";
+
+const DETAIL_IMAGE =
+  "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1200&q=85&auto=format&fit=crop";
 
 function useCountUp(
   end: number,
@@ -113,6 +117,19 @@ export default function PerformanceStats() {
             />
           </div>
         </div>
+
+        {/* Car detail image */}
+        <ScrollReveal delay={0.2}>
+          <div className="mt-16 relative aspect-[21/9] rounded-2xl overflow-hidden">
+            <Image
+              src={DETAIL_IMAGE}
+              alt="Volterra E1 detail"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/20" />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
