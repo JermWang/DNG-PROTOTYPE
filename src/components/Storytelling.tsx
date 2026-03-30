@@ -10,7 +10,7 @@ const stories = [
     headline: "0–60 in 2.1s",
     description:
       "Instant torque. Zero hesitation. The E1 rewrites the rules of acceleration with dual-motor precision.",
-    image: "/images/taycan-side.png",
+    image: "/images/taycan-angle.png",
   },
   {
     label: "Powertrain",
