@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 
 const BREAK_IMAGE =
-  "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=90&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1642911041079-13c39400413e?w=1920&q=90&auto=format&fit=crop";
 
 const line1 = ["This", " ", "isn't", " ", "evolution."];
 const line2 = ["This", " ", "is", " ", "replacement."];
@@ -28,18 +28,26 @@ export default function VisualBreak() {
       ref={ref}
       className="relative h-[80vh] flex items-center justify-center overflow-hidden"
     >
-      {/* Car photo background with parallax zoom */}
-      <motion.div className="absolute inset-0" style={{ scale: imgScale }}>
+      {/* Car photo background with parallax zoom + edge fading */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          scale: imgScale,
+          maskImage: "linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)",
+        }}
+      >
         <Image
           src={BREAK_IMAGE}
           alt="Volterra E1"
           fill
+          sizes="100vw"
           className="object-cover object-center"
         />
       </motion.div>
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Horizontal accent lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
@@ -70,7 +78,7 @@ export default function VisualBreak() {
           <br />
           {line2.map((word: string, i: number) =>
             word === " " ? (
-              <span key={`l2-${i}`} className="text-white/25">{" "}</span>
+              <span key={`l2-${i}`} className="text-white/50">{" "}</span>
             ) : (
               <motion.span
                 key={`l2-${i}`}
@@ -81,7 +89,7 @@ export default function VisualBreak() {
                   delay: 0.4 + i * 0.08,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="inline-block text-white/25"
+                className="inline-block text-white/50"
               >
                 {word}
               </motion.span>

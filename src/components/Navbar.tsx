@@ -7,7 +7,7 @@ function NavLink({ children, accent }: { children: React.ReactNode; accent?: boo
   return (
     <motion.span
       className={`relative text-xs tracking-[0.2em] uppercase cursor-pointer group ${
-        accent ? "text-white/60" : "text-white/40"
+        accent ? "text-white/80" : "text-white/60"
       }`}
       whileHover={{ color: "rgba(255,255,255,1)" }}
       transition={{ duration: 0.3 }}
@@ -57,7 +57,7 @@ export default function Navbar() {
         </span>
 
         <motion.button
-          className="relative text-xs tracking-[0.2em] uppercase text-white/60 font-medium cursor-pointer overflow-hidden px-5 py-2 rounded-full border border-white/[0.08]"
+          className="relative text-xs tracking-[0.2em] uppercase text-white/80 font-medium cursor-pointer overflow-hidden px-5 py-2 rounded-full border border-white/[0.12]"
           whileHover={{
             borderColor: "rgba(255,255,255,0.25)",
             backgroundColor: "rgba(255,255,255,0.05)",

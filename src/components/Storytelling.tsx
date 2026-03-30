@@ -11,7 +11,7 @@ const stories = [
     description:
       "Instant torque. Zero hesitation. The E1 rewrites the rules of acceleration with dual-motor precision.",
     image:
-      "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=85&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1614415512834-d6a88fcc29e4?w=800&q=85&auto=format&fit=crop",
   },
   {
     label: "Powertrain",
@@ -19,7 +19,7 @@ const stories = [
     description:
       "Independent front and rear motors deliver surgical power distribution. Every wheel, every millisecond, optimized.",
     image:
-      "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=85&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1570374910698-6db3d787e6fb?w=800&q=85&auto=format&fit=crop",
   },
   {
     label: "Philosophy",
@@ -27,7 +27,7 @@ const stories = [
     description:
       "The absence of noise isn\u2019t emptiness \u2014 it\u2019s confidence. The E1 commands attention without asking for it.",
     image:
-      "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&q=85&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615125468484-088e3dfcabb6?w=800&q=85&auto=format&fit=crop",
   },
 ];
 
@@ -75,7 +75,7 @@ function StoryBlock({
               delay: 0.05,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="text-[10px] tracking-[0.5em] uppercase text-white/25 mb-6 font-light"
+            className="text-[10px] tracking-[0.5em] uppercase text-white/60 mb-6 font-light"
           >
             {story.label}
           </motion.p>
@@ -118,7 +118,7 @@ function StoryBlock({
               delay: 0.35,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="text-base md:text-lg text-white/40 max-w-lg leading-relaxed font-light"
+            className="text-base md:text-lg text-white/70 max-w-lg leading-relaxed font-light"
           >
             {story.description}
           </motion.p>
@@ -138,14 +138,19 @@ function StoryBlock({
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
             className="relative aspect-[4/3] rounded-2xl overflow-hidden"
+            style={{
+              maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
+              WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
+            }}
           >
             <Image
               src={story.image}
               alt={story.label}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/10" />
           </motion.div>
         </motion.div>
       </div>

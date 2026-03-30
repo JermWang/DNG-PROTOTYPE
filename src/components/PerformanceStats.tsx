@@ -6,7 +6,7 @@ import ScrollReveal from "./ScrollReveal";
 import Image from "next/image";
 
 const DETAIL_IMAGE =
-  "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1200&q=85&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1570432215913-b66fff4a50a4?w=1200&q=85&auto=format&fit=crop";
 
 function useCountUp(
   end: number,
@@ -72,11 +72,11 @@ function StatCard({
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         {count.toLocaleString()}
-        <span className="text-white/25 text-[0.35em] ml-2 font-light">
+        <span className="text-white/50 text-[0.35em] ml-2 font-light">
           {unit}
         </span>
       </motion.div>
-      <p className="text-[10px] tracking-[0.4em] uppercase text-white/20 mt-5 font-light">
+      <p className="text-[10px] tracking-[0.4em] uppercase text-white/50 mt-5 font-light">
         {label}
       </p>
     </motion.div>
@@ -88,7 +88,7 @@ export default function PerformanceStats() {
     <section className="px-6 md:px-16 py-32">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <p className="text-[10px] tracking-[0.5em] uppercase text-white/25 mb-4 text-center font-light">
+          <p className="text-[10px] tracking-[0.5em] uppercase text-white/60 mb-4 text-center font-light">
             By The Numbers
           </p>
           <h2 className="text-[clamp(2rem,5vw,4rem)] font-bold text-center tracking-[-0.02em] mb-20">
@@ -120,14 +120,23 @@ export default function PerformanceStats() {
 
         {/* Car detail image */}
         <ScrollReveal delay={0.2}>
-          <div className="mt-16 relative aspect-[21/9] rounded-2xl overflow-hidden">
+          <div
+            className="mt-16 relative aspect-[21/9] rounded-2xl overflow-hidden"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent), linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+              maskComposite: "intersect",
+              WebkitMaskComposite: "source-in",
+            }}
+          >
             <Image
               src={DETAIL_IMAGE}
               alt="Volterra E1 detail"
               fill
+              sizes="100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/10" />
           </div>
         </ScrollReveal>
       </div>

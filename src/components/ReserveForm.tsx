@@ -6,7 +6,7 @@ import ScrollReveal from "./ScrollReveal";
 import Image from "next/image";
 
 const RESERVE_IMAGE =
-  "https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=85&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1642911041553-297e5295276b?w=800&q=85&auto=format&fit=crop&crop=left";
 
 function GlowInput({
   type,
@@ -31,7 +31,7 @@ function GlowInput({
         value={value}
         onChange={onChange}
         required
-        className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 focus:bg-white/[0.05] focus:shadow-[0_0_20px_rgba(255,255,255,0.04)] transition-all duration-500 text-sm tracking-wide"
+        className="w-full px-5 py-4 bg-white/[0.03] border border-white/[0.08] rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-white/20 focus:bg-white/[0.05] focus:shadow-[0_0_20px_rgba(255,255,255,0.04)] transition-all duration-500 text-sm tracking-wide"
       />
     </motion.div>
   );
@@ -52,27 +52,34 @@ export default function ReserveForm() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         {/* Image side */}
         <ScrollReveal direction="left">
-          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+          <div
+            className="relative aspect-[3/4] rounded-2xl overflow-hidden"
+            style={{
+              maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
+              WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, black 60%, transparent 100%)",
+            }}
+          >
             <Image
               src={RESERVE_IMAGE}
               alt="Volterra E1"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/10" />
           </div>
         </ScrollReveal>
 
         {/* Form side */}
         <div className="text-center md:text-left">
           <ScrollReveal>
-            <p className="text-[10px] tracking-[0.5em] uppercase text-white/25 mb-4 font-light">
+            <p className="text-[10px] tracking-[0.5em] uppercase text-white/60 mb-4 font-light">
               Be First
             </p>
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.02em] mb-4">
               Reserve Your Build
             </h2>
-            <p className="text-white/30 text-sm font-light mb-14 leading-relaxed tracking-wide">
+            <p className="text-white/70 text-sm font-light mb-14 leading-relaxed tracking-wide">
               Join the founding cohort. Priority access to configuration,
               delivery, and the future.
             </p>
@@ -120,7 +127,7 @@ export default function ReserveForm() {
                   <span className="relative z-10">Reserve Now</span>
                 </motion.button>
 
-                <p className="text-[10px] text-white/15 mt-4 tracking-wider">
+                <p className="text-[10px] text-white/40 mt-4 tracking-wider">
                   No payment required. Fully refundable deposit.
                 </p>
               </motion.form>
@@ -139,7 +146,7 @@ export default function ReserveForm() {
                   className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-8"
                 >
                   <svg
-                    className="w-6 h-6 text-white/50"
+                    className="w-6 h-6 text-white/80"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -167,7 +174,7 @@ export default function ReserveForm() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.65, duration: 0.5 }}
-                  className="text-white/30 mt-2 text-xs tracking-wider font-light"
+                  className="text-white/60 mt-2 text-xs tracking-wider font-light"
                 >
                   We&apos;ll be in touch soon.
                 </motion.p>

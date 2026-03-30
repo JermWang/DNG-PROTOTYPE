@@ -76,7 +76,7 @@ export default function PowerMode() {
     <section className="min-h-screen flex items-center justify-center px-6 md:px-16 py-32">
       <div className="max-w-5xl w-full">
         <ScrollReveal>
-          <p className="text-[10px] tracking-[0.5em] uppercase text-white/25 mb-4 text-center font-light">
+          <p className="text-[10px] tracking-[0.5em] uppercase text-white/60 mb-4 text-center font-light">
             Drive Configuration
           </p>
           <h2 className="text-[clamp(2rem,5vw,4rem)] font-bold text-center tracking-[-0.02em] mb-16">
@@ -155,13 +155,13 @@ export default function PowerMode() {
                 border: `1px solid ${config.color}12`,
               }}
             >
-              <p className="text-[10px] tracking-[0.3em] uppercase text-white/25 mb-4 font-light">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 mb-4 font-light">
                 {stat.label}
               </p>
               <div className="text-3xl md:text-4xl font-bold mb-1 tabular-nums">
                 <AnimatedValue value={stat.value} color={config.color} />
               </div>
-              <p className="text-[11px] text-white/30 tracking-wider">
+              <p className="text-[11px] text-white/60 tracking-wider">
                 {stat.unit}
               </p>
             </motion.div>
@@ -170,7 +170,7 @@ export default function PowerMode() {
 
         {/* Power Bar */}
         <div className="mt-16 max-w-2xl mx-auto">
-          <div className="flex justify-between text-[10px] text-white/20 mb-3 tracking-[0.2em] uppercase font-light">
+          <div className="flex justify-between text-[10px] text-white/50 mb-3 tracking-[0.2em] uppercase font-light">
             <span>Power Output</span>
             <span>{Math.round((config.hp / 1200) * 100)}%</span>
           </div>

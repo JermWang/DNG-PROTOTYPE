@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=1920&q=90&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1642911041553-297e5295276b?w=1920&q=90&auto=format&fit=crop";
 
 export default function Hero() {
   return (
@@ -21,13 +21,14 @@ export default function Hero() {
           alt="Volterra E1"
           fill
           priority
+          sizes="100vw"
           className="object-cover object-center"
         />
       </motion.div>
 
-      {/* Gradient overlays for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent pointer-events-none" />
+      {/* Edge fades — bottom heavy, sides subtle, NO top fade */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black via-black/50 to-transparent" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/40 via-transparent to-black/40" />
 
       {/* Text content — bottom-aligned */}
       <div className="relative z-10 text-center px-6 pb-24 w-full max-w-5xl">
@@ -35,7 +36,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-[11px] tracking-[0.5em] uppercase text-white/60 mb-6 font-light"
+          className="text-[11px] tracking-[0.5em] uppercase text-white/80 mb-6 font-light"
         >
           Introducing
         </motion.p>
@@ -61,7 +62,7 @@ export default function Hero() {
             delay: 1,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="text-sm md:text-base tracking-[0.25em] text-white/50 font-light mt-6 uppercase"
+          className="text-sm md:text-base tracking-[0.25em] text-white/70 font-light mt-6 uppercase"
         >
           Electric Performance Redefined
         </motion.p>
@@ -77,7 +78,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"
+          className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"
         />
       </motion.div>
     </section>
